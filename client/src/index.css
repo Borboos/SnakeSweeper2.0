@@ -1,0 +1,81 @@
+body {
+  background-color: #222;
+}
+
+.AppContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Grid {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+  border: #888 solid 1px;
+}
+
+.Grid:focus {
+  outline: none;
+}
+
+.Row {
+  float: left;
+}
+
+.Square,
+.Flipped {
+  background-color: #aaa;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  border: #888 solid 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.SnakeSquare {
+  background-color: gray;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  border: black solid 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.Flipped {
+  background-color: #ddd;
+  color: #bbb;
+}
+
+.OneClose {
+  color: blue;
+}
+.TwoClose {
+  color: green;
+}
+.ThreePlusClose {
+  color: red;
+}
+
+.Square:hover {
+  background-color: #888;
+  border: #888 solid 1px;
+}
+
+.GameOver {
+  color: white;
+}
+
+img {
+  width: 50%;
+  height: 50%;
+}
