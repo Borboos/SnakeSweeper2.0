@@ -5,18 +5,24 @@ import env from "dotenv";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
-
-const app = express();
-const port = 5000;
+import path from "path";
 
 env.config();
-const db = new pg.Client({
+const app = express();
+const PORT = process.env.PORT || 5000;
+const buildPath = path.join(process.cwd(), "../client/build");
+const devDBConfig = {
   user: process.env.PG_USER,
   host: process.env.PG_HOST,
   database: process.env.PG_DATABASE,
   password: process.env.PG_PASSWORD,
   port: process.env.PG_PORT,
-});
+};
+const prodDBConfig = { connectionString: process.env.DATABASE_URL };
+
+const db = new pg.Client(
+  process.env.NODE_ENV === "production" ? prodDBConfig : devDBConfig
+);
 db.connect();
 
 function verifyAccessToken(req, res, next) {
@@ -44,6 +50,7 @@ function corsSetup(req, res, next) {
   next();
 }
 
+if (process.env.NODE_ENV === "production") app.use(express.static(buildPath));
 app.use(corsSetup);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -283,4 +290,4 @@ app.post("/minesweeper", verifyAccessToken, async (req, res) => {
   return res.status(200).json({ message: "Score added" });
 });
 
-app.listen(port, () => console.log(`Server started on port ${port}`));
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
