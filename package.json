@@ -1,5 +1,10 @@
 {
   "scripts": {
-    "start": "cd server && npm start"
+    "start": "cd server && npm start",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+  },
+  "engines": {
+    "node": "20.17.0",
+    "npm": "10.8.2"
   }
 }
