@@ -26,7 +26,6 @@ function SnakeGameOver({ score, resetGame }) {
               const response = await AxiosInstance.get("/refresh");
               setAuth(response.data);
               try {
-                console.log(date);
                 await AxiosInstance.post(
                   "/snake",
                   { score, date },

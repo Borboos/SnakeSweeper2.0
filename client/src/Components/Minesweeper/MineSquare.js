@@ -14,7 +14,7 @@ function MineSquare({ square, handleLeftClick, handleRightClick }) {
       onClick={() => handleLeftClick(square.x, square.y)}
       onContextMenu={(event) => {
         event.preventDefault();
-        handleRightClick(square.x, square.y);
+        if (!square.flipped) handleRightClick(square.x, square.y);
       }}
     >
       {!square.flipped && square.flagged && <Flag />}
