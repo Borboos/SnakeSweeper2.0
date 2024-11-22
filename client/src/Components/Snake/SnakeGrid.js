@@ -63,7 +63,7 @@ function SnakeGrid() {
         const nextHead = getNextSquare(tempDirection, currHead, tempSquareList);
         if (nextHead === undefined || currBody.includes(nextHead)) {
           setGameOver(true);
-          const bounceSound = new Audio(`./sounds/bounce.mp3`);
+          const bounceSound = new Audio(`./sounds/death.wav`);
           bounceSound.play();
         } else {
           nextHead.head = true;
@@ -213,7 +213,6 @@ function SnakeGrid() {
       <h1>Snake</h1>
       <div
         id="SnakeGrid"
-        className="Grid"
         onKeyDown={(event) => {
           event.preventDefault();
           updateHeadDirection(event.key);

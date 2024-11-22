@@ -1,43 +1,55 @@
 import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import AuthContext from "../AuthContext";
 import AxiosInstance from "../AxiosInstance";
 
 function NavBar() {
-  const { auth, setAuth } = useContext(AuthContext);
-  const navigate = useNavigate();
+	const { auth, setAuth } = useContext(AuthContext);
+	const navigate = useNavigate();
+	const location = useLocation();
 
-  async function handleLogOut() {
-    await AxiosInstance.get("/logout");
-    setAuth({});
-    navigate("/");
-  }
+	async function handleLogOut() {
+		await AxiosInstance.get("/logout");
+		setAuth({});
+		navigate("/");
+	}
 
-  return (
-    <div>
-      <nav>
-        <div>
-          <Link to="/">Home</Link>
-          <Link to="/snake">Snake</Link>
-          <Link to="/minesweeper">Minesweeper</Link>
-          <Link to="/leaderboard">Leaderboard</Link>
-        </div>
-        <div>
-          {auth.token ? (
-            <div>
-              <Link to="/account">Account</Link>
-              <button onClick={() => handleLogOut()}>Logout</button>
-            </div>
-          ) : (
-            <div>
-              <Link to="/login">Login</Link>
-              <Link to="/register">Register</Link>
-            </div>
-          )}
-        </div>
-      </nav>
-    </div>
-  );
+	return (
+		<>
+			<div id="navBar">
+				<ul>
+					<li className={location.pathname === "/" ? "chosenLink" : undefined}>
+						<Link to="/">Home</Link>
+					</li>
+					<li className={location.pathname === "/snake" ? "chosenLink" : undefined}>
+						<Link to="/snake">Snake</Link>
+					</li>
+					<li className={location.pathname === "/minesweeper" ? "chosenLink" : undefined}>
+						<Link to="/minesweeper">Minesweeper</Link>
+					</li>
+					<li className={location.pathname === "/leaderboard" ? "chosenLink" : undefined}>
+						<Link to="/leaderboard">Leaderboard</Link>
+					</li>
+
+					{auth.token ? (
+						<li className={location.pathname === "/account" ? "chosenLink" : undefined}>
+							<Link to="/account">Account</Link>
+							<button onClick={() => handleLogOut()}>Logout</button>
+						</li>
+					) : (
+						<>
+							<li className={location.pathname === "/login" ? "chosenLink" : undefined}>
+								<Link to="/login">Login</Link>
+							</li>
+							<li className={location.pathname === "/register" ? "chosenLink" : undefined}>
+								<Link to="/register">Register</Link>
+							</li>
+						</>
+					)}
+				</ul>
+			</div>
+		</>
+	);
 }
 
 export default NavBar;
