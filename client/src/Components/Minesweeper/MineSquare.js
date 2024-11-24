@@ -18,7 +18,7 @@ function MineSquare({ square, handleLeftClick, handleRightClick }) {
       }}
     >
       {!square.flipped && square.flagged && <Flag />}
-      {square.flipped && square.bomb && <Bomb />}
+      {square.bomb && <Bomb />}
       {square.flipped &&
         !square.bomb &&
         square.adjacentBombs > 0 &&

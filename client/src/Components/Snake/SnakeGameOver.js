@@ -1,55 +1,8 @@
-import React, { useContext, useEffect } from "react";
-import AuthContext from "../../AuthContext";
-import AxiosInstance from "../../AxiosInstance";
+import React from "react";
+import usePostScoreData from "../../Hooks/usePostScoreData";
 
 function SnakeGameOver({ score, resetGame }) {
-  const { auth, setAuth } = useContext(AuthContext);
-  const date = new Date().toLocaleDateString("en-US");
-
-  useEffect(() => {
-    if (auth.token) {
-      async function postData() {
-        try {
-          await AxiosInstance.post(
-            "/snake",
-            { score, date },
-            {
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${auth.token}`,
-              },
-            }
-          );
-        } catch (error) {
-          if (error.response.status === 403) {
-            try {
-              const response = await AxiosInstance.get("/refresh");
-              setAuth(response.data);
-              try {
-                await AxiosInstance.post(
-                  "/snake",
-                  { score, date },
-                  {
-                    headers: {
-                      "Content-Type": "application/json",
-                      Authorization: `Bearer ${auth.token}`,
-                    },
-                  }
-                );
-              } catch (error) {
-                console.log(error);
-              }
-            } catch (error) {
-              console.log(error);
-            }
-          }
-          console.log(error);
-        }
-      }
-      postData();
-    }
-  }, []);
-
+  usePostScoreData("/snake", score, true);
   return (
     <div className="gameOver">
       <h1>Game Over</h1>
