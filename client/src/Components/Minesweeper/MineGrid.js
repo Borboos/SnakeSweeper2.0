@@ -208,7 +208,11 @@ function MineGrid() {
           getTime={getTime}
         />
       ) : (
-        <div></div>
+        <div>
+          <p>Avoid detonating bombs.</p>
+          <p>Flip all non-bomb squares by left-clicking to win.</p>
+          <p>Use right-clicking to mark unflipped bombs.</p>
+        </div>
       )}
     </div>
   );

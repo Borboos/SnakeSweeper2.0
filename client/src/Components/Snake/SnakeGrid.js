@@ -228,10 +228,17 @@ function SnakeGrid() {
           />
         ))}
       </div>
-      {!gameOver ? (
-        <h2>Fruits Eaten: {score}</h2>
+      {gameOver ? (
+        <div>
+          <SnakeGameOver score={score} resetGame={resetGame} />
+        </div>
       ) : (
-        <SnakeGameOver score={score} resetGame={resetGame} />
+        <div>
+          <h2>Fruits Eaten: {score}</h2>
+          <p>Avoid going out of bounds or hitting your tail.</p>
+          <p>Collect as many fruits as you can. </p>
+          <p>Use the space bar to start and pause/unpause the game.</p>
+        </div>
       )}
     </div>
   );
