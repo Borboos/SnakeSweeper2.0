@@ -10,6 +10,7 @@ function Register() {
     password: "",
     passwordConfirm: "",
   });
+  const [registerSuccessful, setRegisterSuccessful] = useState(false);
   const [submissionError, setSubmissionError] = useState("");
   const navigate = useNavigate();
 
@@ -26,7 +27,10 @@ function Register() {
             "Content-Type": "application/x-www-form-urlencoded",
           },
         });
-        navigate("/login");
+        setRegisterSuccessful(true);
+        setTimeout(() => {
+          navigate("/login");
+        }, 2000);
       } catch (error) {
         setSubmissionError(error.response.data.error);
         console.log(error);
@@ -74,6 +78,7 @@ function Register() {
         <div></div>
       )}
       {submissionError ? <p>{submissionError}</p> : <div></div>}
+      {registerSuccessful && <p>Registration Successful</p>}
     </div>
   );
 }
