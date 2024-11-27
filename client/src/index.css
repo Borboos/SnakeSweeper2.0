@@ -29,11 +29,11 @@ body {
 
 .Square,
 .Flipped {
-	background-color: #aaa;
+	background-color: #c2c3c7;
 	text-align: center;
 	width: 30px;
 	height: 30px;
-	border: #888 solid 1px;
+	border: #000000 solid 1px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -52,7 +52,7 @@ body {
 }
 
 .Flipped {
-	background-color: #ddd;
+	background-color: #fff1e8;
 	color: #bbb;
 }
 
@@ -67,15 +67,14 @@ body {
 }
 
 .Square:hover {
-	background-color: #888;
-	border: #888 solid 1px;
+	background-color: #83769c;
 }
 
 .GameOver {
 	color: white;
 }
 
-.snakeIcon {
+.snakeIcon, .mineIcon {
 	width: 32px;
 	height: 32px;
 }
