@@ -61,7 +61,7 @@ h4 {
 
 .Square,
 .Flipped {
-	background-color: #c2c3c7;
+	background-color: #1d2b53;
 	text-align: center;
 	width: 32px;
 	height: 32px;
@@ -74,7 +74,7 @@ h4 {
 }
 
 .SnakeSquare {
-	background-color: #c2c3c7;
+	background-color: #1d2b53;
 	width: 32px;
 	height: 32px;
 	border: #000000 solid 1px;
@@ -83,8 +83,7 @@ h4 {
 }
 
 .Flipped {
-	background-color: #fff1e8;
-	color: #fff1e8;
+	background-color: #000000;
 }
 
 .OneClose {
@@ -103,6 +102,10 @@ h4 {
 
 .GameOver {
 	color: white;
+}
+
+#SnakeGrid:focus {
+	outline: none;
 }
 
 .snakeIcon,
@@ -153,7 +156,8 @@ h4 {
 }
 
 #snakesweeperTitle,
-.homeDivGridItem h2 {
+.homeDivGridItem h2,
+.gameTitle {
 	text-align: center;
 }
 
