@@ -171,3 +171,28 @@ h4 {
 .homeDivGridItem img {
 	max-width: 300px;
 }
+
+#unmarkedText {
+	display: flex;
+	vertical-align: middle;
+	justify-content: center;
+	color: #ff004d;
+	font-size: 30px;
+	font-family: "PixelMplus10-Bold";
+	letter-spacing: 0.5rem;
+	padding: 2px;
+	border-bottom: #29adff solid 4px;
+	margin-bottom: 1px;
+}
+
+#GameGridContainer {
+	border: #29adff solid 4px;
+}
+
+#GameGrid, #SnakeGrid {
+	margin: 1px;
+}
+
+#unmarkedText img {
+	width: 32px;
+}

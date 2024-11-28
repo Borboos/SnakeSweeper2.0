@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import SnakeGameOver from "./SnakeGameOver";
 import SnakeSquare from "./SnakeSquare";
 
+import Apple from "../Icons/Apple.png";
+
 import ArrowLeft from "../Icons/Snake1/ArrowLeft.png";
 import ArrowRight from "../Icons/Snake1/ArrowRight.png";
 import ArrowUp from "../Icons/Snake1/ArrowUp.png";
@@ -190,17 +192,23 @@ function SnakeGrid() {
 	return (
 		<div>
 			<h1 className="gameTitle">Snake</h1>
-			<div
-				id="SnakeGrid"
-				onKeyDown={(event) => {
-					event.preventDefault();
-					updateHeadDirection(event.key);
-				}}
-				tabIndex={0}
-			>
-				{squareList.map((square, index) => (
-					<SnakeSquare key={index} square={square} fruitNum={fruitNum} headDirection={headDirection} variant={snakeVariants[snakeVariant]} />
-				))}
+			<div id="GameGridContainer">
+				<div id="unmarkedText">
+					{String(score).padStart(3, "0")}
+					<img src={Apple}></img>
+				</div>
+				<div
+					id="SnakeGrid"
+					onKeyDown={(event) => {
+						event.preventDefault();
+						updateHeadDirection(event.key);
+					}}
+					tabIndex={0}
+				>
+					{squareList.map((square, index) => (
+						<SnakeSquare key={index} square={square} fruitNum={fruitNum} headDirection={headDirection} variant={snakeVariants[snakeVariant]} />
+					))}
+				</div>
 			</div>
 			{gameOver ? (
 				<div>
@@ -208,7 +216,6 @@ function SnakeGrid() {
 				</div>
 			) : (
 				<div>
-					<h2>Fruits Eaten: {score}</h2>
 					<p>Avoid going out of bounds or hitting your tail.</p>
 					<p>Collect as many fruits as you can. </p>
 					<p>Use the space bar to start and pause/unpause the game.</p>
