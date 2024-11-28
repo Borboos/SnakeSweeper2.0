@@ -7,7 +7,9 @@ import jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
 import path from "path";
 
-env.config();
+env.config({
+  path: "../.env",
+});
 const app = express();
 const PORT = process.env.PORT || 5000;
 const buildPath = path.join(process.cwd(), "../client/build");
