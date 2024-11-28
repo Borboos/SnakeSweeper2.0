@@ -1,10 +1,42 @@
+@font-face {
+	font-family: "PixelMplus12-Regular";
+	src: url(./fonts/PixelMplus12-Regular.ttf) format("truetype");
+}
+
+@font-face {
+	font-family: "PixelMplus10-Regular";
+	src: url(./fonts/PixelMplus10-Regular.ttf) format("truetype");
+}
+
+@font-face {
+	font-family: "PixelMplus12-Bold";
+	src: url(./fonts/PixelMplus12-Bold.ttf) format("truetype");
+}
+
+@font-face {
+	font-family: "PixelMplus10-Bold";
+	src: url(./fonts/PixelMplus10-Bold.ttf) format("truetype");
+}
+
 body {
-	background-color: #111;
-	font-family: "IBM Plex Sans", sans-serif;
+	background-color: #000000;
+	font-family: "PixelMplus10-Regular", monospace;
 	margin: 0;
 	padding: 0;
-  position: relative;
-  color: #bbb;
+	position: relative;
+	color: #fff1e8;
+}
+
+h1 {
+	color: #ffccaa
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-weight: 400;
+	font-family: "PixelMplus12-Bold", monospace;
 }
 
 .AppContainer {
@@ -31,14 +63,13 @@ body {
 .Flipped {
 	background-color: #c2c3c7;
 	text-align: center;
-	width: 30px;
-	height: 30px;
+	width: 32px;
+	height: 32px;
 	border: #000000 solid 1px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	font-size: 18px;
-	font-weight: bold;
 	font-family: "Courier New", Courier, monospace;
 }
 
@@ -53,7 +84,7 @@ body {
 
 .Flipped {
 	background-color: #fff1e8;
-	color: #bbb;
+	color: #fff1e8;
 }
 
 .OneClose {
@@ -74,7 +105,8 @@ body {
 	color: white;
 }
 
-.snakeIcon, .mineIcon {
+.snakeIcon,
+.mineIcon {
 	width: 32px;
 	height: 32px;
 }
@@ -88,7 +120,7 @@ body {
 	top: 0;
 	left: 0;
 	width: 100vw;
-	background-color: #222;
+	background-color: #5f574f;
 }
 
 #navBar li {
@@ -106,16 +138,16 @@ body {
 	height: 100%;
 	display: inline-block;
 	padding: 10px 12px 10px 12px;
-	color: #bbb;
-	background-color: #222;
+	color: #fff1e8;
+	background-color: #5f574f;
 }
 
 #navBar .chosenLink a {
-	background-color: #bbb;
-	color: #222;
+	background-color: #fff1e8;
+	color: #5f574f;
 }
 
 #navBar a:hover {
-	background-color: #bbb;
-	color: #222;
+	background-color: #fff1e8;
+	color: #5f574f;
 }
