@@ -28,7 +28,7 @@ body {
 }
 
 h1 {
-	color: #ffccaa
+	color: #ffccaa;
 }
 
 h1,
@@ -150,4 +150,23 @@ h4 {
 #navBar a:hover {
 	background-color: #fff1e8;
 	color: #5f574f;
+}
+
+#homeDiv {
+	display: flex;
+}
+
+#snakesweeperTitle, .homeDivGridItem h2 {
+	text-align: center;
+}
+
+.homeDivGridItem {
+	margin: 15px;
+	padding: 15px;
+	background-color: #5f574f;
+	border: 2px #fff1e8 solid;
+}
+
+.homeDivGridItem img {
+	max-width: 300px;
 }
