@@ -77,7 +77,7 @@ h4 {
 	background-color: #c2c3c7;
 	width: 32px;
 	height: 32px;
-	border: #5f574f solid 1px;
+	border: #000000 solid 1px;
 	display: block;
 	padding: 0;
 }
@@ -109,10 +109,6 @@ h4 {
 .mineIcon {
 	width: 32px;
 	height: 32px;
-}
-
-#SnakeGrid {
-	border: #5f574f solid 1px;
 }
 
 #navBar {
@@ -156,7 +152,8 @@ h4 {
 	display: flex;
 }
 
-#snakesweeperTitle, .homeDivGridItem h2 {
+#snakesweeperTitle,
+.homeDivGridItem h2 {
 	text-align: center;
 }
 
