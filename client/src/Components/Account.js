@@ -27,7 +27,7 @@ function Account() {
 
   return (
     <div>
-      <h1>Account Information:</h1>
+      <h1>Account Information</h1>
       <p>Email: {auth.email}</p>
       <p>Username: {auth.username}</p>
       {!usernameUpdate ? (
