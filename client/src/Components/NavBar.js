@@ -15,7 +15,7 @@ function NavBar() {
 	}
 
 	return (
-		<>
+		<div id="navBarContainer">
 			<div id="navBar">
 				<ul>
 					<li className={location.pathname === "/" ? "chosenLink" : undefined}>
@@ -53,7 +53,7 @@ function NavBar() {
 					)}
 				</ul>
 			</div>
-		</>
+		</div>
 	);
 }
 
