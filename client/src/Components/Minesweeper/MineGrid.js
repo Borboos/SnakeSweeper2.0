@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import MineSquare from "./MineSquare";
 import MineGameOver from "./MineGameOver";
 
+import Mine from "../Icons/mine.png";
+
 function MineGrid() {
 	const GRID_SIZE = 16;
 	const BOMB_COUNT = 40;
@@ -168,28 +170,32 @@ function MineGrid() {
 		setFinalTime(0);
 		setFlagsLeft(40);
 		visitedSquares.current = [];
-		document.getElementById("MineGrid").focus();
 	}
 
 	return (
 		<div>
 			<h1 className="gameTitle">Mine Sweeper</h1>
-			<h2>Bombs Unmarked: {flagsLeft}</h2>
-			<div id="MineGrid" className="Grid">
-				{squareList.map((square, index) => (
-					<MineSquare key={index} square={square} handleLeftClick={handleLeftClick} handleRightClick={handleRightClick} />
-				))}
-			</div>
-			{firstSquareClicked && !gameOver ? <h2>Time Elapsed: {getTime(timer)}</h2> : <div></div>}
-			{gameOver ? (
-				<MineGameOver gameWon={gameWon} resetGame={resetGame} finalTime={finalTime} getTime={getTime} />
-			) : (
-				<div>
-					<p>Avoid detonating bombs.</p>
-					<p>Flip all non-bomb squares by left-clicking to win.</p>
-					<p>Use right-clicking to mark unflipped bombs.</p>
+			<div id="GameGridContainer">
+				<div id="unmarkedText">
+					{String(flagsLeft).padStart(2, "0")}
+					<img src={Mine}></img>
 				</div>
-			)}
+				<div id="GameGrid" className="Grid">
+					{squareList.map((square, index) => (
+						<MineSquare key={index} square={square} handleLeftClick={handleLeftClick} handleRightClick={handleRightClick} />
+					))}
+				</div>
+			</div>
+				{firstSquareClicked && !gameOver ? <h2>Time Elapsed: {getTime(timer)}</h2> : <div></div>}
+				{gameOver ? (
+					<MineGameOver gameWon={gameWon} resetGame={resetGame} finalTime={finalTime} getTime={getTime} />
+				) : (
+					<div>
+						<p>Avoid detonating bombs.</p>
+						<p>Flip all non-bomb squares by left-clicking to win.</p>
+						<p>Use right-clicking to mark unflipped bombs.</p>
+					</div>
+				)}
 		</div>
 	);
 }

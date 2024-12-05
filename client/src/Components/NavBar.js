@@ -15,7 +15,7 @@ function NavBar() {
 	}
 
 	return (
-		<>
+		<div id="navBarContainer">
 			<div id="navBar">
 				<ul>
 					<li className={location.pathname === "/" ? "chosenLink" : undefined}>
@@ -32,10 +32,15 @@ function NavBar() {
 					</li>
 
 					{auth.token ? (
-						<li className={location.pathname === "/account" ? "chosenLink" : undefined}>
-							<Link to="/account">Account</Link>
-							<button onClick={() => handleLogOut()}>Logout</button>
-						</li>
+						<>
+							<li className={location.pathname === "/account" ? "chosenLink" : undefined}>
+								<Link to="/account">Account</Link>
+							</li>
+
+							<li>
+								<a onClick={() => handleLogOut()}>Logout</a>
+							</li>
+						</>
 					) : (
 						<>
 							<li className={location.pathname === "/login" ? "chosenLink" : undefined}>
@@ -48,7 +53,7 @@ function NavBar() {
 					)}
 				</ul>
 			</div>
-		</>
+		</div>
 	);
 }
 

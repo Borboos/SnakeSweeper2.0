@@ -114,12 +114,14 @@ h4 {
 	height: 32px;
 }
 
-#navBar {
+#navBarContainer {
 	position: sticky;
 	top: 0;
 	left: 0;
 	width: 100vw;
 	background-color: #5f574f;
+	display: flex;
+	justify-content: center;
 }
 
 #navBar li {
@@ -170,4 +172,108 @@ h4 {
 
 .homeDivGridItem img {
 	max-width: 300px;
+}
+
+#unmarkedText {
+	display: flex;
+	vertical-align: middle;
+	justify-content: center;
+	color: #ff004d;
+	font-size: 30px;
+	font-family: "PixelMplus10-Bold";
+	letter-spacing: 0.5rem;
+	padding: 2px;
+	border-bottom: #29adff solid 4px;
+	margin-bottom: 1px;
+}
+
+#GameGridContainer {
+	border: #29adff solid 4px;
+}
+
+#GameGrid,
+#SnakeGrid {
+	margin: 1px;
+}
+
+#unmarkedText img {
+	width: 32px;
+}
+
+.textInput {
+	outline: none;
+	border: 2px solid #5f574f;
+	background-color: #c2c3c7;
+	color: #1d2b53;
+	padding: 10px;
+	margin: 10px;
+	font-family: inherit;
+	width: 300px;
+}
+
+.textInput:focus,
+.textInput:hover {
+	background-color: #fff1e8;
+	color: #000000;
+}
+
+.textInput::placeholder {
+	color: #83769c;
+}
+
+.formButton {
+	font-family: inherit;
+	padding: 10px;
+	margin: 10px;
+	background: #29adff;
+	color: #fff1e8;
+	border: 2px solid #fff1e8;
+	outline: none;
+}
+
+.formButton:focus,
+.formButton:hover {
+	background: #fff1e8;
+	color: #29adff;
+	border: 2px solid #29adff;
+}
+
+.accountForm {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.formError {
+	text-align: center;
+	color: #ff004d;
+}
+
+.formSuccess {
+	text-align: center;
+	color: #00e436;
+}
+
+.scoreTable {
+	text-align: left;
+	border-spacing: 0;
+	border: 1px solid #29adff;
+	width: 400px;
+}
+
+.scoreTable th {
+	background-color: #1d2b53;
+	padding: 5px;
+	border: 1px solid #29adff;
+}
+
+.scoreTable td {
+	padding: 5px;
+	border: 1px solid #29adff;
+	color: #c2c3c7;
+}
+
+.scoreTable tr:hover td {
+	background-color: #83769c;
+	color: #fff1e8;
 }
