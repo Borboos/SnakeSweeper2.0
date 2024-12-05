@@ -5,9 +5,9 @@ import Mine from "../Icons/Mine.png";
 
 function MineGrid() {
   const GRID_SIZE = 16;
-  const BOMB_COUNT = 40;
+  const MINE_COUNT = 40;
   const [squareList, setSquareList] = useState(
-    getInitGrid(GRID_SIZE, BOMB_COUNT)
+    getInitGrid(GRID_SIZE, MINE_COUNT)
   );
   const [gameOver, setGameOver] = useState(false);
   const [gameWon, setGameWon] = useState(false);
@@ -26,7 +26,7 @@ function MineGrid() {
 
   useEffect(() => {
     const flagsRemaining =
-      BOMB_COUNT - squareList.filter((square) => square.flagged).length;
+      MINE_COUNT - squareList.filter((square) => square.flagged).length;
     setFlagsLeft(flagsRemaining);
   }, [squareList]);
 
@@ -37,24 +37,24 @@ function MineGrid() {
         initialSquareList.push({
           x: i,
           y: j,
-          adjacentBombs: 0,
+          adjacentMines: 0,
           flipped: false,
           flagged: false,
-          bomb: false,
+          mine: false,
           hovered: false,
         });
       }
     }
-    for (let i = 0; i < BOMB_COUNT; i++) {
+    for (let i = 0; i < MINE_COUNT; i++) {
       let randX = Math.floor(Math.random() * GRID_SIZE);
       let randY = Math.floor(Math.random() * GRID_SIZE);
       let randSquare = getSquare(randX, randY, initialSquareList);
-      while (randSquare.bomb) {
+      while (randSquare.mine) {
         randX = Math.floor(Math.random() * GRID_SIZE);
         randY = Math.floor(Math.random() * GRID_SIZE);
         randSquare = getSquare(randX, randY, initialSquareList);
       }
-      randSquare.bomb = true;
+      randSquare.mine = true;
     }
     initialSquareList.forEach((currentSquare) => {
       const adjacentSquares = initialSquareList.filter(
@@ -64,7 +64,7 @@ function MineGrid() {
           Math.abs(currentSquare.y - square.y) <= 1
       );
       adjacentSquares.forEach((adjacentSquare) => {
-        if (adjacentSquare.bomb) currentSquare.adjacentBombs++;
+        if (adjacentSquare.mine) currentSquare.adjacentMines++;
       });
     });
     return initialSquareList;
@@ -89,20 +89,20 @@ function MineGrid() {
   function flipAdjacentSquares(x, y, list) {
     const currentSquare = getSquare(x, y, list);
     visitedSquares.current = [...visitedSquares.current, currentSquare];
-    if (currentSquare.bomb) return;
+    if (currentSquare.mine) return;
     else {
       currentSquare.flipped = true;
       if (currentSquare.flagged) currentSquare.flagged = false;
-      if (currentSquare.adjacentBombs === 0) {
-        const adjacentSquaresWithoutBombsNotVisited = list.filter(
+      if (currentSquare.adjacentMines === 0) {
+        const adjacentSquaresWithoutMinesNotVisited = list.filter(
           (square) =>
             !(currentSquare.x === square.x && currentSquare.y === square.y) &&
             Math.abs(currentSquare.x - square.x) <= 1 &&
             Math.abs(currentSquare.y - square.y) <= 1 &&
-            !square.bomb &&
+            !square.mine &&
             !visitedSquares.current.includes(square)
         );
-        adjacentSquaresWithoutBombsNotVisited.forEach((square) =>
+        adjacentSquaresWithoutMinesNotVisited.forEach((square) =>
           flipAdjacentSquares(square.x, square.y, list)
         );
       }
@@ -129,17 +129,17 @@ function MineGrid() {
         return;
       }
       if (!firstSquareClicked) {
-        while (clickedSquare.bomb) {
-          tempList = getInitGrid(GRID_SIZE, BOMB_COUNT);
+        while (clickedSquare.mine) {
+          tempList = getInitGrid(GRID_SIZE, MINE_COUNT);
           clickedSquare = getSquare(x, y, tempList);
         }
         setFirstSquareClicked(true);
         setTimer(0);
       }
       clickedSquare.flipped = true;
-      if (clickedSquare.bomb) {
-        const bombSound = new Audio(`./sounds/explosion.mp3`);
-        bombSound.play();
+      if (clickedSquare.mine) {
+        const explosionSound = new Audio(`./sounds/explosion.mp3`);
+        explosionSound.play();
         endGame(false);
       } else {
         clickedSquare.flipped = true;
@@ -147,7 +147,7 @@ function MineGrid() {
         if (
           GRID_SIZE * GRID_SIZE -
             squareList.filter((square) => square.flipped).length ===
-          BOMB_COUNT
+          MINE_COUNT
         )
           endGame(true);
       }
@@ -171,7 +171,7 @@ function MineGrid() {
   }
 
   function resetGame() {
-    setSquareList(getInitGrid(GRID_SIZE, BOMB_COUNT));
+    setSquareList(getInitGrid(GRID_SIZE, MINE_COUNT));
     setGameOver(false);
     setGameWon(false);
     setFirstSquareClicked(false);

@@ -1,5 +1,5 @@
 import React from "react";
-import Bomb from "../Icons/Mine.png";
+import Mine from "../Icons/Mine.png";
 import Flag from "../Icons/Flag.png";
 import Zero from "../Icons/Numbers/0.png";
 import One from "../Icons/Numbers/1.png";
@@ -24,9 +24,9 @@ function MineSquare({ square, handleLeftClick, handleRightClick }) {
       {!square.flipped && square.flagged && (
         <img className="mineIcon" src={Flag} />
       )}
-      {square.flipped && square.bomb && <img className="mineIcon" src={Bomb} />}
+      {square.flipped && square.mine && <img className="mineIcon" src={Mine} />}
       {square.flipped &&
-        !square.bomb &&
+        !square.mine &&
         {
           0: <img className="mineIcon" src={Zero} />,
           1: <img className="mineIcon" src={One} />,
@@ -37,7 +37,7 @@ function MineSquare({ square, handleLeftClick, handleRightClick }) {
           6: <img className="mineIcon" src={Six} />,
           7: <img className="mineIcon" src={Seven} />,
           8: <img className="mineIcon" src={Eight} />,
-        }[square.adjacentBombs]}
+        }[square.adjacentMines]}
     </div>
   );
 }
