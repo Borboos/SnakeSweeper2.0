@@ -1,36 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SnakeGameOver from "./SnakeGameOver";
 import SnakeSquare from "./SnakeSquare";
-
 import Apple from "../Icons/Apple.png";
-
-import ArrowLeft from "../Icons/Snake1/ArrowLeft.png";
-import ArrowRight from "../Icons/Snake1/ArrowRight.png";
-import ArrowUp from "../Icons/Snake1/ArrowUp.png";
-import ArrowDown from "../Icons/Snake1/ArrowDown.png";
-import Body from "../Icons/Snake1/Body.png";
-import ArrowLeft2 from "../Icons/Snake2/ArrowLeft.png";
-import ArrowRight2 from "../Icons/Snake2/ArrowRight.png";
-import ArrowUp2 from "../Icons/Snake2/ArrowUp.png";
-import ArrowDown2 from "../Icons/Snake2/ArrowDown.png";
-import Body2 from "../Icons/Snake2/Body.png";
-
-const snakeVariants = [
-  {
-    Left: ArrowLeft,
-    Right: ArrowRight,
-    Up: ArrowUp,
-    Down: ArrowDown,
-    Body: Body,
-  },
-  {
-    Left: ArrowLeft2,
-    Right: ArrowRight2,
-    Up: ArrowUp2,
-    Down: ArrowDown2,
-    Body: Body2,
-  },
-];
 
 function SnakeGrid() {
   const GRID_SIZE = 16;
@@ -43,10 +14,6 @@ function SnakeGrid() {
   const [fruitNum, setFruitNum] = useState(Math.ceil(Math.random() * 3));
   const [lastTimestamp, setLastTimestamp] = useState(0);
   const [frameTime, setFrameTime] = React.useState(performance.now());
-
-  const [snakeVariant, setSnakeVariant] = useState(
-    Math.floor(Math.random() * snakeVariants.length)
-  );
 
   useEffect(() => {
     document.getElementById("SnakeGrid").focus();
@@ -239,7 +206,6 @@ function SnakeGrid() {
     setFruitNum(Math.ceil(Math.random() * 3));
     setLastTimestamp(0);
     setFrameTime(performance.now());
-    setSnakeVariant(Math.floor(Math.random() * snakeVariants.length));
     document.getElementById("SnakeGrid").focus();
   }
 
@@ -265,7 +231,6 @@ function SnakeGrid() {
               square={square}
               fruitNum={fruitNum}
               headDirection={headDirection}
-              variant={snakeVariants[snakeVariant]}
             />
           ))}
         </div>
