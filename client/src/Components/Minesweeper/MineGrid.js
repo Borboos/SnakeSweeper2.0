@@ -170,7 +170,6 @@ function MineGrid() {
 		setFinalTime(0);
 		setFlagsLeft(40);
 		visitedSquares.current = [];
-		document.getElementById("MineGrid").focus();
 	}
 
 	return (
