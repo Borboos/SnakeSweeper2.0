@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import MineSquare from "./MineSquare";
 import MineGameOver from "./MineGameOver";
-
-import Mine from "../Icons/mine.png";
+import Mine from "../Icons/Mine.png";
 
 function MineGrid() {
   const GRID_SIZE = 16;
@@ -215,9 +214,9 @@ function MineGrid() {
         />
       ) : (
         <div>
-          <p>Flip all non-bomb squares by left-clicking to win.</p>
-          <p>Use right-clicking to mark unflipped bombs.</p>
-          <p>Avoid detonating bombs.</p>
+          <p>Flip all non-mined squares by left-clicking to win.</p>
+          <p>Use right-clicking to mark unflipped mines.</p>
+          <p>Avoid detonating mines.</p>
         </div>
       )}
     </div>

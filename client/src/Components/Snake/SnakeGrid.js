@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SnakeGameOver from "./SnakeGameOver";
 import SnakeSquare from "./SnakeSquare";
-import Apple from "../Icons/Apple.png";
+import Apple from "../Icons/Fruits/Apple.png";
 
 function SnakeGrid() {
   const GRID_SIZE = 16;

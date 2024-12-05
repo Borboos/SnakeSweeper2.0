@@ -1,12 +1,12 @@
 import React from "react";
-import Apple from "../Icons/Apple.png";
-import Banana from "../Icons/Banana.png";
-import Orange from "../Icons/Orange.png";
-import ArrowLeft from "../Icons/Snake1/ArrowLeft.png";
-import ArrowRight from "../Icons/Snake1/ArrowRight.png";
-import ArrowUp from "../Icons/Snake1/ArrowUp.png";
-import ArrowDown from "../Icons/Snake1/ArrowDown.png";
-import Body from "../Icons/Snake1/Body.png";
+import Apple from "../Icons/Fruits/Apple.png";
+import Orange from "../Icons/Fruits/Orange.png";
+import Banana from "../Icons/Fruits/Banana.png";
+import ArrowLeft from "../Icons/SnakePieces/ArrowLeft.png";
+import ArrowRight from "../Icons/SnakePieces/ArrowRight.png";
+import ArrowUp from "../Icons/SnakePieces/ArrowUp.png";
+import ArrowDown from "../Icons/SnakePieces/ArrowDown.png";
+import Body from "../Icons/SnakePieces/Body.png";
 
 function SnakeSquare({ square, fruitNum, headDirection }) {
   return (

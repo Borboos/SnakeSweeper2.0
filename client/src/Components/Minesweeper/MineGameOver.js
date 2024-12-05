@@ -15,7 +15,7 @@ function MineGameOver({ gameWon, finalTime, getTime, resetGame }) {
         </div>
       ) : (
         <div>
-          <h1>You detonated a bomb!</h1>
+          <h1>You detonated a mine!</h1>
           <h1>Time Played: {getTime(finalTime)}</h1>
           <button className="formButton" onClick={() => resetGame()}>
             Click Here to Restart
