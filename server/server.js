@@ -63,13 +63,15 @@ app.get("/leaderboard", async (req, res) => {
     `SELECT users.username, snakescores.score, snakescores.date
     FROM snakescores 
     INNER JOIN users ON snakescores.email=users.email
-    ORDER BY snakescores.score DESC;`
+    ORDER BY snakescores.score DESC
+    LIMIT 10;`
   );
   const mineScoreQ = await db.query(
     `SELECT users.username, minesweeperscores.score, minesweeperscores.date
     FROM minesweeperscores
     INNER JOIN users ON minesweeperscores.email=users.email
-    ORDER BY minesweeperscores.score ASC;`
+    ORDER BY minesweeperscores.score ASC
+    LIMIT 10;`
   );
   const scoreData = {
     snakeScores: snakeScoreQ.rows,
@@ -213,14 +215,16 @@ app.get("/account", verifyAccessToken, async (req, res) => {
     FROM minesweeperscores
     INNER JOIN users ON minesweeperscores.email=users.email
     WHERE users.email = '${user.email}'
-    ORDER BY score ASC;`
+    ORDER BY score ASC
+    LIMIT 10;`
   );
   const snakeScoresQ = await db.query(
     `SELECT score, date
     FROM snakescores 
     INNER JOIN users ON snakescores.email=users.email 
     WHERE users.email = '${user.email}'
-    ORDER BY score DESC;`
+    ORDER BY score DESC
+    LIMIT 10;`
   );
   const minesweeperScores =
     minesweeperScoresQ.rows.length > 0

@@ -7,7 +7,9 @@ function SnakeGameOver({ score, resetGame }) {
     <div className="gameOver">
       <h1>Game Over</h1>
       <h1>Fruits Eaten: {score}</h1>
-      <button onClick={() => resetGame()}>Click Here to Restart</button>
+      <button className="formButton" onClick={() => resetGame()}>
+        Click Here to Restart
+      </button>
     </div>
   );
 }

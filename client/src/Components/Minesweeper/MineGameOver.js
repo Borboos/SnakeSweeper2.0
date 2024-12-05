@@ -9,13 +9,17 @@ function MineGameOver({ gameWon, finalTime, getTime, resetGame }) {
         <div>
           <h1>Congratulations, you won!</h1>
           <h1>Time Played: {getTime(finalTime)}</h1>
-          <button onClick={() => resetGame()}>Click Here to Restart</button>
+          <button className="formButton" onClick={() => resetGame()}>
+            Click Here to Restart
+          </button>
         </div>
       ) : (
         <div>
           <h1>You detonated a bomb!</h1>
           <h1>Time Played: {getTime(finalTime)}</h1>
-          <button onClick={() => resetGame()}>Click Here to Restart</button>
+          <button className="formButton" onClick={() => resetGame()}>
+            Click Here to Restart
+          </button>
         </div>
       )}
     </div>

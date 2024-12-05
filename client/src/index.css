@@ -1,279 +1,290 @@
 @font-face {
-	font-family: "PixelMplus12-Regular";
-	src: url(./fonts/PixelMplus12-Regular.ttf) format("truetype");
+  font-family: "PixelMplus12-Regular";
+  src: url(./fonts/PixelMplus12-Regular.ttf) format("truetype");
 }
 
 @font-face {
-	font-family: "PixelMplus10-Regular";
-	src: url(./fonts/PixelMplus10-Regular.ttf) format("truetype");
+  font-family: "PixelMplus10-Regular";
+  src: url(./fonts/PixelMplus10-Regular.ttf) format("truetype");
 }
 
 @font-face {
-	font-family: "PixelMplus12-Bold";
-	src: url(./fonts/PixelMplus12-Bold.ttf) format("truetype");
+  font-family: "PixelMplus12-Bold";
+  src: url(./fonts/PixelMplus12-Bold.ttf) format("truetype");
 }
 
 @font-face {
-	font-family: "PixelMplus10-Bold";
-	src: url(./fonts/PixelMplus10-Bold.ttf) format("truetype");
+  font-family: "PixelMplus10-Bold";
+  src: url(./fonts/PixelMplus10-Bold.ttf) format("truetype");
 }
 
 body {
-	background-color: #000000;
-	font-family: "PixelMplus10-Regular", monospace;
-	margin: 0;
-	padding: 0;
-	position: relative;
-	color: #fff1e8;
+  background-color: #000000;
+  font-family: "PixelMplus10-Regular", monospace;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  color: #fff1e8;
 }
 
 h1 {
-	color: #ffccaa;
+  color: #ffccaa;
 }
 
 h1,
 h2,
 h3,
-h4 {
-	font-weight: 400;
-	font-family: "PixelMplus12-Bold", monospace;
+h4,
+p {
+  font-weight: 400;
+  font-family: "PixelMplus12-Bold", monospace;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .AppContainer {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .Grid,
 #SnakeGrid {
-	display: grid;
-	grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
 }
 
 .Grid:focus {
-	outline: none;
+  outline: none;
 }
 
 .Row {
-	float: left;
+  float: left;
 }
 
 .Square,
 .Flipped {
-	background-color: #1d2b53;
-	text-align: center;
-	width: 32px;
-	height: 32px;
-	border: #000000 solid 1px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 18px;
-	font-family: "Courier New", Courier, monospace;
+  background-color: #1d2b53;
+  text-align: center;
+  width: 32px;
+  height: 32px;
+  border: #000000 solid 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .SnakeSquare {
-	background-color: #1d2b53;
-	width: 32px;
-	height: 32px;
-	border: #000000 solid 1px;
-	display: block;
-	padding: 0;
+  background-color: #1d2b53;
+  width: 32px;
+  height: 32px;
+  border: #000000 solid 1px;
+  display: block;
+  padding: 0;
 }
 
 .Flipped {
-	background-color: #000000;
+  background-color: #000000;
 }
 
 .OneClose {
-	color: blue;
+  color: blue;
 }
 .TwoClose {
-	color: green;
+  color: green;
 }
 .ThreePlusClose {
-	color: red;
+  color: red;
 }
 
 .Square:hover {
-	background-color: #83769c;
+  background-color: #83769c;
 }
 
 .GameOver {
-	color: white;
+  color: white;
 }
 
 #SnakeGrid:focus {
-	outline: none;
+  outline: none;
 }
 
 .snakeIcon,
 .mineIcon {
-	width: 32px;
-	height: 32px;
+  width: 32px;
+  height: 32px;
 }
 
 #navBarContainer {
-	position: sticky;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	background-color: #5f574f;
-	display: flex;
-	justify-content: center;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background-color: #5f574f;
+  display: flex;
+  justify-content: center;
 }
 
 #navBar li {
-	display: inline;
+  display: inline;
+  cursor: pointer;
 }
 
 #navBar ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 #navBar a {
-	text-decoration: none;
-	height: 100%;
-	display: inline-block;
-	padding: 10px 12px 10px 12px;
-	color: #fff1e8;
-	background-color: #5f574f;
+  text-decoration: none;
+  height: 100%;
+  display: inline-block;
+  padding: 10px 12px 10px 12px;
+  color: #fff1e8;
+  background-color: #5f574f;
 }
 
 #navBar .chosenLink a {
-	background-color: #fff1e8;
-	color: #5f574f;
+  background-color: #fff1e8;
+  color: #5f574f;
 }
 
 #navBar a:hover {
-	background-color: #fff1e8;
-	color: #5f574f;
+  background-color: #fff1e8;
+  color: #5f574f;
 }
 
 #homeDiv {
-	display: flex;
+  display: flex;
 }
 
 #snakesweeperTitle,
 .homeDivGridItem h2,
 .gameTitle {
-	text-align: center;
+  text-align: center;
 }
 
 .homeDivGridItem {
-	margin: 15px;
-	padding: 15px;
-	background-color: #5f574f;
-	border: 2px #fff1e8 solid;
+  margin: 15px;
+  padding: 15px;
+  background-color: #5f574f;
+  border: 2px #fff1e8 solid;
 }
 
 .homeDivGridItem img {
-	max-width: 300px;
+  max-width: 300px;
 }
 
 #unmarkedText {
-	display: flex;
-	vertical-align: middle;
-	justify-content: center;
-	color: #ff004d;
-	font-size: 30px;
-	font-family: "PixelMplus10-Bold";
-	letter-spacing: 0.5rem;
-	padding: 2px;
-	border-bottom: #29adff solid 4px;
-	margin-bottom: 1px;
+  display: flex;
+  vertical-align: middle;
+  justify-content: center;
+  color: #ff004d;
+  font-size: 30px;
+  font-family: "PixelMplus10-Bold";
+  letter-spacing: 0.5rem;
+  padding: 2px;
+  border-bottom: #29adff solid 4px;
+  margin-bottom: 1px;
 }
 
 #GameGridContainer {
-	border: #29adff solid 4px;
+  border: #29adff solid 4px;
 }
 
 #GameGrid,
 #SnakeGrid {
-	margin: 1px;
+  margin: 1px;
 }
 
 #unmarkedText img {
-	width: 32px;
+  width: 32px;
 }
 
 .textInput {
-	outline: none;
-	border: 2px solid #5f574f;
-	background-color: #c2c3c7;
-	color: #1d2b53;
-	padding: 10px;
-	margin: 10px;
-	font-family: inherit;
-	width: 300px;
+  outline: none;
+  border: 2px solid #5f574f;
+  background-color: #c2c3c7;
+  color: #1d2b53;
+  padding: 10px;
+  margin: 10px;
+  font-family: inherit;
+  width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .textInput:focus,
 .textInput:hover {
-	background-color: #fff1e8;
-	color: #000000;
+  background-color: #fff1e8;
+  color: #000000;
 }
 
 .textInput::placeholder {
-	color: #83769c;
+  color: #83769c;
 }
 
 .formButton {
-	font-family: inherit;
-	padding: 10px;
-	margin: 10px;
-	background: #29adff;
-	color: #fff1e8;
-	border: 2px solid #fff1e8;
-	outline: none;
+  font-family: inherit;
+  padding: 10px;
+  margin: 10px;
+  background: #29adff;
+  color: #fff1e8;
+  border: 2px solid #fff1e8;
+  outline: none;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.formButton:focus,
 .formButton:hover {
-	background: #fff1e8;
-	color: #29adff;
-	border: 2px solid #29adff;
+  background: #fff1e8;
+  color: #29adff;
+  border: 2px solid #29adff;
 }
 
 .accountForm {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .formError {
-	text-align: center;
-	color: #ff004d;
+  text-align: center;
+  color: #ff004d;
 }
 
 .formSuccess {
-	text-align: center;
-	color: #00e436;
+  text-align: center;
+  color: #00e436;
 }
 
 .scoreTable {
-	text-align: left;
-	border-spacing: 0;
-	border: 1px solid #29adff;
-	width: 400px;
+  text-align: left;
+  border-spacing: 0;
+  border: 1px solid #29adff;
+  width: 400px;
 }
 
 .scoreTable th {
-	background-color: #1d2b53;
-	padding: 5px;
-	border: 1px solid #29adff;
+  background-color: #1d2b53;
+  padding: 5px;
+  border: 1px solid #29adff;
 }
 
 .scoreTable td {
-	padding: 5px;
-	border: 1px solid #29adff;
-	color: #c2c3c7;
+  padding: 5px;
+  border: 1px solid #29adff;
+  color: #c2c3c7;
 }
 
 .scoreTable tr:hover td {
-	background-color: #83769c;
-	color: #fff1e8;
+  background-color: #83769c;
+  color: #fff1e8;
 }
