@@ -50,6 +50,7 @@ function SnakeGrid() {
       currFruit.fruit = false;
       nextFruit.fruit = true;
       const biteSound = new Audio(`./sounds/bite.mp3`);
+      biteSound.volume = 0.25;
       biteSound.play();
       return Math.ceil(Math.random() * 3);
     }
@@ -65,6 +66,7 @@ function SnakeGrid() {
         if (nextHead === undefined || currBody.includes(nextHead)) {
           setGameOver(true);
           const bounceSound = new Audio(`./sounds/death.wav`);
+          bounceSound.volume = 0.25;
           bounceSound.play();
         } else {
           nextHead.head = true;

@@ -114,6 +114,7 @@ function MineGrid() {
       setGameOver(true);
       setGameWon(true);
       const victorySound = new Audio(`./sounds/victory.mp3`);
+      victorySound.volume = 0.25;
       victorySound.play();
     } else {
       setGameOver(true);
@@ -139,6 +140,7 @@ function MineGrid() {
       clickedSquare.flipped = true;
       if (clickedSquare.mine) {
         const explosionSound = new Audio(`./sounds/explosion.mp3`);
+        explosionSound.volume = 0.25;
         explosionSound.play();
         endGame(false);
       } else {
